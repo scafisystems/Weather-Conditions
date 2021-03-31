@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.scafisystems.weatherconditions.model.entity.ApiResponse.Forecast" />
+
+        <variable
+            name="dialog"
+            type="com.scafisystems.weatherconditions.view.dialog.WeatherDetailsDialog" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/weather_4"
+            tools:context=".view.fragment.WeatherListFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/weather_image"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:imageUrl="@{forecast.weather[0].icon}"
+                        android:scaleType="fitCenter"
+                        tools:src="@mipmap/ic_launcher" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/day_info"
+                        style="@style/Theme.DialogText"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@{dialog.convertDate(forecast.dtTxt)}"
+                        tools:text="day_info" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_info"
+                        style="@style/Theme.DialogText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@{forecast.weather[0].main}"
+                        android:textSize="22sp"
+                        tools:text="weather_info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_description"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/description(forecast.weather[0].description)}"
+                        tools:text="weather_description" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_temp"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/temperature(forecast.main.temp)}"
+                        tools:text="weather_temp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_max_temp"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/temperature_max(forecast.Main.tempMax)}"
+                        tools:text="weather_max_temp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_min_temp"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/temperature_min(forecast.Main.tempMin)}"
+                        tools:text="weather_min_temp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/weather_temp_feels_like"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/temperature_feels(forecast.Main.feelsLike)}"
+                        tools:text="weather_temp_feels_like" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/humidity"
+                        style="@style/Theme.DialogText"
+                        android:text="@{@string/humidity(forecast.Main.humidity)}"
+                        tools:text="humidity" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/wind_speed"
+                        style="@style/Theme.DialogText"
+                        android:layout_marginBottom="60sp"
+                        android:text="@{@string/wind_speed(forecast.wind.speed)}"
+                        tools:text="wind_speed" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="@{() -> dialog.dismiss()}"
+                        android:text="OK" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

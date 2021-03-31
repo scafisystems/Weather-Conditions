@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Weather Conditions</string>
+
+    //Dialog Details
+    <string name="description">Conditions: %s </string>
+    <string name="temperature">Temperarure: %s  \u00B0C</string>
+    <string name="temperature_max">Max temperarure: %s \u00B0C</string>
+    <string name="temperature_min">Min temperarure: %s \u00B0C</string>
+    <string name="temperature_feels">Feels temperarure: %s \u00B0C</string>
+    <string name="humidity">Humidity: %s \%% </string>
+    <string name="wind_speed">Wind speed: %s km/s</string>
+
+    //Select Fragment
+    <string name="select_btn">Select</string>
+    <string name="insert_city_name">Please insert your the city name</string>
+    <string name="write_the_city_name">Enter the city name</string>
+
+    //Detais Fragment
+    <string name="api_error">An error has occured while loading data</string>
+
+</resources>
