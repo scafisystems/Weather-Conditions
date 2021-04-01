@@ -1,6 +1,6 @@
 # Weather-Conditions
 
-This is a simple demo application to demonstrate how to use some features such as MVVM, ViewModel, LiveData, Coroutines, Navigation, Data Binding, Rerofit, Glide, Junit, Espresso and dependicy injection with Koin.
+This is a simple demo application to demonstrate how to use some features such as MVVM, ViewModel, LiveData, Coroutines, Navigation, Data Binding, Rerofit, Glide, Junit, Espresso and dependency injection with Koin.
 
 ✅ Images
 
