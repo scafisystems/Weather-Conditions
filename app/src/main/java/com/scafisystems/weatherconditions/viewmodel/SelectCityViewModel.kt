@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation.findNavController
 import com.scafisystems.weatherconditions.R
+import com.scafisystems.weatherconditions.util.isConnected
 import com.scafisystems.weatherconditions.view.fragment.SelectCityFragmentDirections
 
 /**
@@ -17,10 +18,16 @@ class SelectCityViewModel : ViewModel() {
     val cityName = MutableLiveData<String>()
 
     fun onClickToListWeather(view: View) {
-        if (validateNameCity()) {
-            goToListFragment(view)
+        if (isConnected(view.context)) {
+
+            if (validateNameCity()) {
+                goToListFragment(view)
+            } else {
+                Toast.makeText(view.context, R.string.insert_city_name, Toast.LENGTH_LONG).show()
+            }
+
         } else {
-            Toast.makeText(view.context, R.string.insert_city_name, Toast.LENGTH_LONG).show()
+            Toast.makeText(view.context, R.string.connect_to_internet, Toast.LENGTH_LONG).show()
         }
 
     }

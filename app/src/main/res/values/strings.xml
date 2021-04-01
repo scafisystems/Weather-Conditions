@@ -14,6 +14,7 @@
     <string name="select_btn">Select</string>
     <string name="insert_city_name">Please insert your the city name</string>
     <string name="write_the_city_name">Enter the city name</string>
+    <string name="connect_to_internet">You must be connected on Internet</string>
 
     //Detais Fragment
     <string name="api_error">An error has occured while loading data</string>

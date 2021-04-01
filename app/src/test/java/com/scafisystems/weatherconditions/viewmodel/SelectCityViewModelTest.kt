@@ -67,15 +67,14 @@ class SelectCityViewModelTest {
     }
 
     @Test
-    fun should_call_Toast_when_name_is_not_empty() {
+    fun should_call_Toast_when_name_is_empty() {
         viewModel.cityName.value = ""
 
         val spy = spy(viewModel)
 
         exception.expect(RuntimeException::class.java)
-        exception.expectMessage("Toast displayed")
+       
         `when`(spy.validateNameCity()).thenThrow(RuntimeException("Toast displayed"))
-
 
         spy.onClickToListWeather(mock(View::class.java))
 

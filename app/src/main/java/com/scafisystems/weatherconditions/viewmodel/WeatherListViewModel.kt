@@ -23,7 +23,7 @@ class WeatherListViewModel(private val retService: WeatherAPI) : ViewModel() {
 
     val cityName = MutableLiveData<String>()
     val responseLiveData: LiveData<Response<ApiResponse>> = callRetrofit()
-
+    val sucecess = MutableLiveData<Boolean>()
 
     fun callRetrofit(): LiveData<Response<ApiResponse>> {
         return liveData {
@@ -38,6 +38,8 @@ class WeatherListViewModel(private val retService: WeatherAPI) : ViewModel() {
     }
 
     fun getForecastList(): List<Forecast> {
+        sucecess.value = responseLiveData.value?.isSuccessful
+
         val list = mutableListOf<Forecast>()
         responseLiveData.value?.body()?.let {
             list.addAll(it.list)

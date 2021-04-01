@@ -8,6 +8,7 @@ import com.scafisystems.weatherconditions.viewmodel.SelectCityViewModel
 import com.scafisystems.weatherconditions.viewmodel.WeatherListViewModel
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert
 import org.junit.Assert.assertFalse
 import org.junit.Rule
 import org.junit.Test
@@ -43,11 +44,10 @@ class WeatherInjectionTest : KoinTest {
         assertEquals(null, selectCityModel.cityName.value)
     }
 
-    @Test
+    @Test()
     fun should_work_WeatherListViewModel_when_injected() {
-        val list = weatherListModel.getForecastList()
-
-        assertEquals(0, list.size)
+        assertEquals(null, weatherListModel.sucecess.value)
+        Assert.assertTrue(weatherListModel != null)
     }
 
     @Test

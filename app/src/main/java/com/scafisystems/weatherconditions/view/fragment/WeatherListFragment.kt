@@ -48,6 +48,13 @@ class WeatherListFragment : Fragment() {
             binding.loadingView.visibility = View.GONE
         })
 
+        viewModel.sucecess.observe(viewLifecycleOwner, Observer {
+            if(viewModel.sucecess.value == false){
+                binding.listError.visibility = View.VISIBLE
+                binding.loadingView.visibility = View.GONE
+            }
+        })
+
         return binding.root
     }
 

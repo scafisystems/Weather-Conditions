@@ -1,5 +1,8 @@
 package com.scafisystems.weatherconditions.util
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,4 +27,10 @@ fun Date.formatTo(dateFormat: String, timeZone: TimeZone = TimeZone.getDefault()
 
 fun String.toCelsus(): String {
     return this + " " + 176.toChar() + "C"
+}
+
+fun isConnected(context: Context): Boolean {
+    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+    return activeNetwork?.isConnectedOrConnecting == true
 }
